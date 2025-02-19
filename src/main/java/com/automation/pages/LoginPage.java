@@ -12,8 +12,8 @@ public class LoginPage extends LoginPage_Or{
 	
 	public void validLogin() {
 	 
-	 we.sendkeys(getUserName(), "problem_user");
-	 we.sendkeys(getPassword(), "secret_sauce");
+	 we.sendKeys(getUserName(), "problem_user");
+	 we.sendKeys(getPassword(), "secret_sauce");
 	 we.click(getLoginButton());
 
 	}
@@ -21,18 +21,18 @@ public class LoginPage extends LoginPage_Or{
 	public void validLoginDataDriven(Object[] dataArray) {
 		 
 		 we.clear(getUserName());
-		 we.sendkeys(getUserName(), (String)dataArray[0]);
+		 we.sendKeys(getUserName(), (String)dataArray[0]);
 		 
 		 we.clear(getPassword());
-		 we.sendkeys(getPassword(), (String)dataArray[1]);
+		 we.sendKeys(getPassword(), (String)dataArray[1]);
 		 
 		 we.click(getLoginButton());
 
 		}
 	
 	public void invalidLogin() {
-		we.sendkeys(getUserName(), "problem_user123");
-		we.sendkeys(getPassword(), "secret_sauce12345");
+		we.sendKeys(getUserName(), "problem_user123");
+		we.sendKeys(getPassword(), "secret_sauce12345");
 		we.click(getLoginButton());
 	}
 	

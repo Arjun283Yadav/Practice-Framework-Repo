@@ -27,3 +27,19 @@ public class LoginPage_Or {
 	@FindBy(xpath = "//h3[@data-test='error']")
 	private WebElement errorMsg;
 }
+
+
+//actually i have created my own custmize method like click, sendkeys, getText, handle window
+//, handle frame etc. in which i have use webdriver method with try catch etc. and useing these
+//method by webutil referance so if you create driver ref in page wise class so you will avoide my 
+//approach so without removing my logic apply changes
+
+
+
+
+
+
+
+
+
+

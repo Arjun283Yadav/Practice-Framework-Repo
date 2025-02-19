@@ -3,16 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.automation.tests.AddCart">
+      <class name="com.automation.tests.LoginTest">
         <methods>
           <include name="beforeMathod"/>
-          <include name="beforeClass"/>
           <include name="afterMathad"/>
-          <include name="verifyaddToCart"/>
-          <include name="verifyInvalidLogin"/>
           <include name="afterClass"/>
+          <include name="verifyInvalidLogin"/>
+          <include name="beforeSuite"/>
         </methods>
-      </class> <!-- com.automation.tests.AddCart -->
+      </class> <!-- com.automation.tests.LoginTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
