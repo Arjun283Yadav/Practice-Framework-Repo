@@ -8,28 +8,31 @@ import java.lang.reflect.Method;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 
 import com.automation.utils.GenricReport_Utility;
 import com.automation.utils.WebUtil;
+import com.automation.webdrivermenegar.WebDriverManagerUtil;
 import com.aventstack.extentreports.ExtentTest;
 
 public class BaseClass {
 	private ExtentTest extTest;
 	protected WebUtil we;
 
-	@BeforeClass
-	public void beforeClass() {
-		GenricReport_Utility.generateReport();
-	}
-
+	@BeforeSuite
+	 public void beforeSuite() {
+	        GenricReport_Utility.generateReport(); // Run only once before all tests
+	    }
+	
 	@BeforeMethod
 	public void beforeMathod(Method mt) {
-		extTest = GenricReport_Utility.getExtentTest(mt.getName());
+		extTest = GenricReport_Utility.createTest(mt.getName());
+		GenricReport_Utility.setExtentTest(extTest);
 		we = new WebUtil();
-		we.setExtentTestObject(extTest);
-		we.lounchBrowser("chrome");
+		we.launchBrowser("chrome");
 		we.hitUrl();
 
 	}
@@ -40,10 +43,11 @@ public class BaseClass {
 			String snapshotPath = we.takeSnapshot(mt.getName());
 			extTest.addScreenCaptureFromPath(snapshotPath);
 		}
-		we.tearDown();
+		GenricReport_Utility.flush();
+		 WebDriverManagerUtil.quitDriver();
 	}
 
-	@AfterClass
+	@AfterSuite
 	public void afterClass() {
 		GenricReport_Utility.flush();
 		// extent html report will automaticatly open after complate exceution

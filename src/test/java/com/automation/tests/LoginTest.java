@@ -1,15 +1,17 @@
 package com.automation.tests;
 
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.automation.basetest.BaseClass;
 import com.automation.pages.LoginPage;
 import com.automation.utils.ReadExcelFile;
 
-public class AddCart extends BaseClass {
+@Listeners(com.automation.utils.TestListeners.class)
+public class LoginTest extends BaseClass {
 	@Test(description = "Verifying login in application with valid details")
-	public void verifyaddToCart() {
+	public void verifyValidLogin() {
 		LoginPage lp = new LoginPage(we);
 		lp.validLogin();
 	}
@@ -32,7 +34,7 @@ public class AddCart extends BaseClass {
 	}
 	
 	@Test(description = "Verifying Invalid Login in application with Data Driven Approach")
-	public void verifyLogin() {
+	public void verifyInvalidLoginByDataDriven() {
 		Object[][] dataArray = getDataList();
 		for (int i = 0; i < getDataList().length; i++) {
 			Object[] singleSetData = dataArray[i];
@@ -53,5 +55,4 @@ public class AddCart extends BaseClass {
 		Assert.assertEquals(actErrorMsg, expErrorMsg, "Error Msg is Not Matched ... ");
 		
 	}
-
 }
