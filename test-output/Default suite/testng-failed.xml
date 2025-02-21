@@ -8,7 +8,6 @@
           <include name="beforeMathod"/>
           <include name="beforeClass"/>
           <include name="afterMathad"/>
-          <include name="verifyaddToCart"/>
           <include name="verifyInvalidLogin"/>
           <include name="afterClass"/>
         </methods>

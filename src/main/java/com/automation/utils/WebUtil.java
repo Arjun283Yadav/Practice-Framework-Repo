@@ -38,6 +38,7 @@ ExtentTest extTest ;
 		
 	}
 	
+	
 	public void setExtentTestObject(ExtentTest extTest) {
 		this.extTest=extTest;
 	}
